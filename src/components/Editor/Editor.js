@@ -2,9 +2,13 @@ import React from 'react';
 
 import './Editor.css';
 
-export default function Editor({ setTitle }) {
+export default function Editor({ setTitle, setSubtitle }) {
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
+  };
+
+  const handleSubtitleChange = (e) => {
+    setSubtitle(e.target.value);
   };
 
   return (
@@ -14,7 +18,7 @@ export default function Editor({ setTitle }) {
         <label htmlFor="title">Title</label>
       </div>
       <div className="form-control">
-        <input type="text" />
+        <input onChange={handleSubtitleChange} type="text" />
         <label>Subtitle</label>
       </div>
       <div className="form-control">
