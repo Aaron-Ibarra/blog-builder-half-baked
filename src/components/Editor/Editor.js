@@ -2,13 +2,21 @@ import React from 'react';
 
 import './Editor.css';
 
-export default function Editor({ setTitle, setSubtitle, setAlignment }) {
+export default function Editor({ setTitle, setSubtitle, setAlignment, setFont, setText }) {
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
   };
 
   const handleSubtitleChange = (e) => {
     setSubtitle(e.target.value);
+  };
+
+  const handleFontChange = (e) => {
+    setFont(e.target.value);
+  };
+
+  const handleTextChange = (e) => {
+    setText(e.target.value);
   };
 
   const handleAlignmentClick = (e) => {
@@ -26,7 +34,7 @@ export default function Editor({ setTitle, setSubtitle, setAlignment }) {
         <label>Subtitle</label>
       </div>
       <div className="form-control">
-        <select>
+        <select onChange={handleFontChange}>
           <option value="architect">{"Architect's Daughter"}</option>
           <option value="comforter">Comforter</option>
           <option value="fredoka">Fredoka</option>
@@ -56,7 +64,7 @@ export default function Editor({ setTitle, setSubtitle, setAlignment }) {
         </div>
       </div>
       <div className="form-control">
-        <textarea style={{ height: '250px' }} />
+        <textarea onChange={handleTextChange} style={{ height: '250px' }} defaultValue={'Text'} />
         <label>Text</label>
       </div>
     </div>
